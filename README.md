@@ -1,4 +1,4 @@
-## Available Scripts
+## Instructions to run the project
 
 In the project directory, run the following two commands in separate consoles:
 
