@@ -1,6 +1,7 @@
 import {
   Avatar,
   Divider,
+  IconButton,
   ListItem,
   ListItemAvatar,
   ListItemText,
@@ -8,6 +9,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
+import { Delete, Edit } from '@material-ui/icons';
 import React from 'react';
 import { IContact } from '../../models/contacts/slice';
 
@@ -20,9 +22,15 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.primary.contrastText,
     backgroundColor: theme.palette.primary.main,
   },
+  button: {
+    margin: theme.spacing(1),
+  },
 }));
 
-interface IContactItem extends IContact {}
+interface IContactItem extends IContact {
+  onEdit: () => void;
+  onDelete: () => void;
+}
 
 const ContactItem: React.FC<IContactItem> = ({
   id,
@@ -31,6 +39,8 @@ const ContactItem: React.FC<IContactItem> = ({
   phone,
   email,
   status,
+  onEdit,
+  onDelete,
 }) => {
   const classes = useStyles();
 
@@ -44,16 +54,26 @@ const ContactItem: React.FC<IContactItem> = ({
             {firstName.charAt(0)}
           </Avatar>
         </ListItemAvatar>
-        <ListItemText
-          primary={`${firstName} ${lastName}`}
-          secondary={
-            <React.Fragment>
-              <Typography color="textPrimary">{phone}</Typography>
-              <Typography color="textPrimary">{email}</Typography>
-              <Typography>{status}</Typography>
-            </React.Fragment>
-          }
-        />
+        <ListItemText>
+          <Typography variant="h6">{`${firstName} ${lastName}`}</Typography>
+          <Typography>{phone}</Typography>
+          <Typography>{email}</Typography>
+          <Typography>{status}</Typography>
+        </ListItemText>
+        <IconButton
+          className={classes.button}
+          aria-label="edit"
+          onClick={onEdit}
+        >
+          <Edit />
+        </IconButton>
+        <IconButton
+          className={classes.button}
+          aria-label="delete"
+          onClick={onDelete}
+        >
+          <Delete />
+        </IconButton>
       </ListItem>
       <Divider variant="inset" component="li" />
     </React.Fragment>

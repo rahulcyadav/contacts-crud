@@ -5,8 +5,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import theme from './constants/theme';
 import './index.css';
+import App from './interfaces/App';
 import store from './models';
-import App from './routes/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(

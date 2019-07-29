@@ -1,15 +1,18 @@
 import { combineReducers } from 'redux';
 import contactsSlice, { IContacts } from './contacts/slice';
-import createContactSlice, { ICreateContact } from './createContact/slice';
+import deleteContactSlice, { IDeleteContact } from './deleteContact/slice';
+import upsertContactSlice, { IUpsertContact } from './upsertContact/slice';
 
 export interface IRootReducer {
   contacts: IContacts;
-  createContact: ICreateContact;
+  upsertContact: IUpsertContact;
+  deleteContact: IDeleteContact;
 }
 
 const rootReducer = combineReducers<IRootReducer>({
   contacts: contactsSlice.reducer,
-  createContact: createContactSlice.reducer,
+  upsertContact: upsertContactSlice.reducer,
+  deleteContact: deleteContactSlice.reducer,
 });
 
 export default rootReducer;

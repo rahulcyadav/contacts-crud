@@ -1,5 +1,6 @@
 import { Action, createSlice, PayloadAction, Slice } from 'redux-starter-kit';
-import createContactSlice from '../createContact/slice';
+import deleteContactSlice from '../deleteContact/slice';
+import upsertContactSlice from '../upsertContact/slice';
 
 export interface IContact {
   id: number;
@@ -43,11 +44,27 @@ const contactsSlice: Slice<IContacts, any> = createSlice<IContacts, any>({
     },
   },
   extraReducers: {
-    [createContactSlice.actions.createSuccess.type]: (
+    [upsertContactSlice.actions.upsertSuccess.type]: (
       state: IContacts,
-      action: PayloadAction<IContact, 'createContact/createSuccess'>
+      action: PayloadAction<IContact, 'upsertContact/upsertSuccess'>
     ) => {
-      state.data!.push(action.payload);
+      const index = state.data!.findIndex(
+        contact => contact.id === action.payload.id
+      );
+      if (index !== -1) {
+        state.data!.splice(index, 1, action.payload);
+      } else {
+        state.data!.push(action.payload);
+      }
+    },
+    [deleteContactSlice.actions.deleteSuccess.type]: (
+      state: IContacts,
+      action: PayloadAction<number, 'deleteContact/deleteSuccess'>
+    ) => {
+      state.data!.splice(
+        state.data!.findIndex(contact => contact.id === action.payload),
+        1
+      );
     },
   },
 });

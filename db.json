@@ -1,43 +1,11 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "Hassan",
-      "lastName": "Abbott",
-      "email": "Imelda_Leffler@yahoo.com",
-      "phone": "1655439978",
-      "status": "inactive"
-    },
-    {
       "id": 2,
       "firstName": "Samson",
       "lastName": "Tillman",
       "email": "Dave.Rohan@hotmail.com",
       "phone": "1366543420",
-      "status": "active"
-    },
-    {
-      "id": 3,
-      "firstName": "Ignatius",
-      "lastName": "Bartoletti",
-      "email": "Nickolas_Gorczany@yahoo.com",
-      "phone": "1341069837",
-      "status": "inactive"
-    },
-    {
-      "id": 4,
-      "firstName": "Madie",
-      "lastName": "Durgan",
-      "email": "Emmett.Kiehn26@gmail.com",
-      "phone": "0686882333",
-      "status": "inactive"
-    },
-    {
-      "id": 5,
-      "firstName": "Brigitte",
-      "lastName": "Pagac",
-      "email": "Lon_Wisoky76@yahoo.com",
-      "phone": "9740868646",
       "status": "inactive"
     },
     {
