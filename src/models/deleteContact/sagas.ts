@@ -10,7 +10,6 @@ export function* deleteContactSaga(
   action: PayloadAction<number, 'deleteContact/deleteRequest'>
 ) {
   try {
-    
     const data = yield call(deleteContactApi, action.payload);
 
     yield put(deleteContactSlice.actions.deleteSuccess(action.payload));
