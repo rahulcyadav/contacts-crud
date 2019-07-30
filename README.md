@@ -13,6 +13,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Folder structure
 
-# assets
-
-contains assets like fonts, images etc.
+- **assets**: for images fonts, etc.
+- **components**: for reusable UI components.
+- **constants**: for constants like colors, font-family etc.
+- **interfaces**: components which compose reusable UI components or page level components
+- **logichooks**: container equivalent of hooks
+- **models**: redux store, reducers, actions, selectors, sagas, apis etc.
+- **utilities**: general utilities
