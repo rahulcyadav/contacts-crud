@@ -11,6 +11,7 @@ import { Field, Form, Formik, FormikActions, FormikProps } from 'formik';
 import { Select, TextField } from 'formik-material-ui';
 import React from 'react';
 import { IContact } from '../../models/contacts/slice';
+import { validateEmail, validateName, validatePhone } from './validations';
 
 const useStyles = makeStyles((theme: Theme) => ({
   form: {
@@ -57,6 +58,7 @@ const ContactForm: React.FC<IContactForm> = ({
                 margin="normal"
                 fullWidth
                 component={TextField}
+                validate={validateName}
               />
               <Field
                 name="lastName"
@@ -65,6 +67,7 @@ const ContactForm: React.FC<IContactForm> = ({
                 margin="normal"
                 fullWidth
                 component={TextField}
+                validate={validateName}
               />
               <Field
                 name="email"
@@ -73,6 +76,7 @@ const ContactForm: React.FC<IContactForm> = ({
                 margin="normal"
                 fullWidth
                 component={TextField}
+                validate={validateEmail}
               />
               <Field
                 name="phone"
@@ -81,6 +85,7 @@ const ContactForm: React.FC<IContactForm> = ({
                 margin="normal"
                 fullWidth
                 component={TextField}
+                validate={validatePhone}
               />
               <Field
                 name="status"
